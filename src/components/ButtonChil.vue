@@ -1,9 +1,13 @@
 <script setup>
+import App from '@/App.vue';
 defineProps(['nome', 'tipo', 'acao'])
+defineEmits(['clique'])
 </script>
   <template>
-<button :class="[tipo, acao]">
-  {{ nome }}
+<button :class="[tipo, acao]" @click.prevent="$emit('clique', nome)">
+  <slot>
+
+  </slot>
 </button>
   </template>
 
@@ -17,10 +21,6 @@ defineProps(['nome', 'tipo', 'acao'])
   border: none;
   cursor: crosshair;
   margin: 1px;
-}
-
-.btn-novo {
-background-color: rgb(0, 223, 0);
 }
 
 </style>

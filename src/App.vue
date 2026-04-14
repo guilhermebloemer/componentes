@@ -1,7 +1,11 @@
 <script setup>
 import { ref } from 'vue';
 import ButtonChil from './components/ButtonChil.vue';
+  function mensagemBotao(texto){
+    alert(`O botão clicado foi ${texto}`)
+  }
 </script>
+
 
 <template>
 <div class="container">
@@ -14,18 +18,28 @@ import ButtonChil from './components/ButtonChil.vue';
 
   </div>
   <div>
-    <ButtonChil :nome="'Novo'" :tipo="'btn'" :acao="'btn-novo'">
-
+    <ButtonChil :nome="'Novo'" :tipo="'btn'" :acao="'btn-novo'" @clique="mensagemBotao">
+      Novo
     </ButtonChil>
+    <ButtonChil :nome="'Editar'" :tipo="'btn'" :acao="'btn-editar'" @clique="mensagemBotao">
+      Editar
+    </ButtonChil>
+    <ButtonChil :nome="'Salvar'" :tipo="'btn'" :acao="'btn-salvar'" @clique="mensagemBotao">
+      Salvar
+    </ButtonChil>
+    <ButtonChil :nome="'Cancelar'" :acao="'btn-cancelar'" :tipo="'btn'" @clique="mensagemBotao">
+      Cancelar
+    </ButtonChil>
+    <ButtonChil :nome="'Excluir'" :tipo="'btn'" :acao="'btn-excluir'" @clique="mensagemBotao">
+      Excluir
+    </ButtonChil>
+
   </div>
 </div>
 </template>
 
 <style scoped>
-. {
 
- justify-content: center;
-}
 .btn {
   color: white;
   background-color: gray;
